@@ -1,0 +1,3 @@
+export const API=process.env.NEXT_PUBLIC_API_URL||'http://localhost:4100/api';
+export async function getJson(route:string){const r=await fetch(API+route,{cache:'no-store'});if(!r.ok)throw new Error('Server unavailable');return r.json()}
+export async function adminCall(route:string,token:string,method='GET',body?:unknown){const r=await fetch(API+route,{method,headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`},body:body===undefined?undefined:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw new Error(Array.isArray(d.message)?d.message.join(', '):d.message||'Request failed');return d}

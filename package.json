@@ -1,0 +1,20 @@
+{
+    "name": "jai-maa-kali-kutri-wali",
+    "private": true,
+    "version": "1.0.0",
+    "workspaces": [
+        "apps/*"
+    ],
+    "scripts": {
+        "dev:web": "npm run dev -w apps/web",
+        "dev:api": "npm run start:dev -w apps/api",
+        "build:web": "npm run build -w apps/web",
+        "build:api": "npm run build -w apps/api",
+        "db:generate": "npm run prisma:generate -w apps/api",
+        "db:migrate": "npm run prisma:migrate -w apps/api",
+        "db:seed": "npm run seed -w apps/api"
+    },
+    "engines": {
+        "node": ">=20"
+    }
+}
